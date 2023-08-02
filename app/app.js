@@ -1,4 +1,5 @@
 const express = require("express");
+const assignmentRouter = require("../router/assignmentRouter");
 const router = require("../router/router");
 const app = express(); //documentation states to call express in order to use request listener, takes request and give response, request listener is app
 
@@ -13,6 +14,9 @@ res.status(200).json({message:"service is up"}) // this message comes up in node
 
 // use middleware to define router
 app.use("/exercise", router); // can only have one contex going to one router
+
+// assignment router
+app.use("/assignment", assignmentRouter);
 
 // use middleware catch bad urls/paths/errors
 app.use((req,res,next) => {
